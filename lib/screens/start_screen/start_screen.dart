@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:medical_test/lib/core/utils/assets_manager.dart';
-import 'package:medical_test/lib/core/utils/color_manager.dart';
-import 'package:medical_test/lib/core/utils/values_manager.dart';
+import 'package:medical_test/screens/utils/assets_manager.dart';
+import 'package:medical_test/screens/utils/color_manager.dart';
+import 'package:medical_test/screens/utils/values_manager.dart';
 import 'package:medical_test/screens/home_screen/home_screen.dart';
 
 class StartScreen extends StatefulWidget {

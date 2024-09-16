@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:medical_test/lib/core/utils/values_manager.dart';
+import 'package:medical_test/screens/utils/values_manager.dart';
 import 'package:medical_test/screens/start_screen/start_screen.dart';
 
 class MyApp extends StatelessWidget {

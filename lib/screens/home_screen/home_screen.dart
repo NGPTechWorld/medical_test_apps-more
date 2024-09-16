@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:medical_test/lib/core/utils/assets_manager.dart';
-import 'package:medical_test/lib/core/utils/color_manager.dart';
-import 'package:medical_test/lib/core/utils/string_manager.dart';
-import 'package:medical_test/lib/core/utils/style_manager.dart';
+import 'package:medical_test/screens/utils/assets_manager.dart';
+import 'package:medical_test/screens/utils/color_manager.dart';
+import 'package:medical_test/screens/utils/string_manager.dart';
+import 'package:medical_test/screens/utils/style_manager.dart';
 import 'package:medical_test/screens/home_screen/widgets/curved_navigation_bar/curved_navigation_bar_custom.dart';
 
 class HomeScreen extends StatefulWidget {

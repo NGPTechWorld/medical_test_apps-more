@@ -1,4 +1,4 @@
-import 'package:medical_test/lib/core/utils/enums/pecialization_enume.dart';
+import 'package:medical_test/data/enums/medical_/medical_pecialization_enume.dart';
 
 class MedicalSpecializationController {
   static String getSpecializationNameInArabic(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:medical_test/lib/core/utils/color_manager.dart';
+import 'package:medical_test/screens/utils/color_manager.dart';
 
 class FavoriteMainScreen extends StatelessWidget {
   const FavoriteMainScreen({super.key});

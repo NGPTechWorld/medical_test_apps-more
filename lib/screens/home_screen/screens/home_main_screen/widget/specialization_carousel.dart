@@ -1,15 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:medical_test/lib/core/controllers/medical_specialization_controller.dart';
-import 'package:medical_test/lib/core/utils/assets_manager.dart';
-import 'package:medical_test/lib/core/utils/color_manager.dart';
-import 'package:medical_test/lib/core/utils/enums/pecialization_enume.dart';
-import 'package:medical_test/lib/core/utils/string_manager.dart';
-import 'package:medical_test/lib/core/utils/style_manager.dart';
-import 'package:medical_test/lib/core/utils/values_manager.dart';
+import 'package:medical_test/core/controllers/medical_specialization_controller.dart';
+import 'package:medical_test/data/enums/medical_/medical_pecialization_enume.dart';
+import 'package:medical_test/screens/utils/assets_manager.dart';
+import 'package:medical_test/screens/utils/color_manager.dart';
+import 'package:medical_test/screens/utils/string_manager.dart';
+import 'package:medical_test/screens/utils/style_manager.dart';
+import 'package:medical_test/screens/utils/values_manager.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-
-// دالة لتقسيم قائمة التخصصات إلى أجزاء
 
 class SpecializationCarousel extends StatefulWidget {
   const SpecializationCarousel({super.key});
@@ -19,37 +17,39 @@ class SpecializationCarousel extends StatefulWidget {
 }
 
 class _SpecializationCarouselState extends State<SpecializationCarousel> {
-  int currentIndex = 0; // لتتبع الفهرس الحالي
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
-    // تقسيم التخصصات إلى مجموعات من 4
     List<List<MedicalSpecialization>> specializationChunks =
         MedicalSpecializationController.chunkSpecializations(4);
 
-    return Scaffold(
-      backgroundColor: ColorManager.whiteColor,
-      appBar: AppBar(
-        backgroundColor: ColorManager.whiteColor,
-        title: Text(
-          StringManager.sectionsText,
-          style: StyleManager.h3_Bold(),
-        ),
-      ),
-      body: Column(
+    return Container(
+      color: ColorManager.whiteColor,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Expanded(
+          Padding(
+            padding: const EdgeInsets.all(AppPadding.p10),
+            child: Text(
+              StringManager.sectionsText,
+              style: StyleManager.h3_Bold(),
+            ),
+          ),
+          Align(
+            alignment: Alignment.topCenter,
             child: CarouselSlider.builder(
               itemCount: specializationChunks.length,
               itemBuilder: (context, index, realIndex) {
                 return GridView.count(
-                  crossAxisCount: 2, // عدد الأعمدة
+                  physics: NeverScrollableScrollPhysics(),
+                  crossAxisCount: 2,
+                  childAspectRatio: 1.1,
                   children: specializationChunks[index].map((specialization) {
                     return Padding(
                       padding: const EdgeInsets.all(AppPadding.p8),
                       child: Container(
-                        width: AppSizeScreen.screenWidth / 2,
-                        height: AppSizeScreen.screenHeight / 5,
                         decoration: BoxDecoration(
                           color: ColorManager.primary1Color,
                           boxShadow: const [BoxShadow(blurRadius: AppSize.s2)],
@@ -88,23 +88,22 @@ class _SpecializationCarouselState extends State<SpecializationCarousel> {
                 );
               },
               options: CarouselOptions(
-                height: AppSizeScreen.screenHeight * 0.5,
+                height: AppSizeScreen.screenHeight * 0.35,
                 enlargeCenterPage: true,
                 autoPlay: true,
                 autoPlayInterval: const Duration(seconds: 5),
                 onPageChanged: (index, reason) {
                   setState(() {
-                    currentIndex = index; // تحديث الفهرس الحالي
+                    currentIndex = index;
                   });
                 },
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: AppPadding.p16),
+          Center(
             child: AnimatedSmoothIndicator(
-              activeIndex: currentIndex, // الفهرس الحالي
-              count: specializationChunks.length, // عدد الشرائح
+              activeIndex: currentIndex,
+              count: specializationChunks.length,
               effect: const ExpandingDotsEffect(
                 dotWidth: 10,
                 dotHeight: 10,

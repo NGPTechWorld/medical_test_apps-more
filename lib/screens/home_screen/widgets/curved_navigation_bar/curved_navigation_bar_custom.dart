@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:medical_test/lib/core/utils/color_manager.dart';
+import 'package:medical_test/screens/utils/color_manager.dart';
 import 'package:medical_test/screens/home_screen/screens/favorite_main_screen/favorite_main_screen.dart';
 import 'package:medical_test/screens/home_screen/screens/home_main_screen/home_main_screen.dart';
 import 'package:medical_test/screens/home_screen/screens/profile_main_screen/profile_main_screen.dart';
