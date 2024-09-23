@@ -1,6 +1,6 @@
 class EndPoints {
-  static const String baserUrl = "http://192.168.137.54:8000/api";
-  static const String template = "/template";
+  static const String baserUrl = "http://192.168.137.35:8000/api";
+  static const String register = "/register";
   static const String login = "/login";
 }
 
@@ -10,5 +10,8 @@ class ApiKey {
   static String username = "username";
   static String email = "email";
   static String password = "password";
-  static String phonenumber = "phone_number";
+  static String phoneNumber = "phone_number";
+  static String passwordConfirmation = "password_confirmation";
+  static String type = "type";
+  static String fcmToken = "fcm_token";
 }

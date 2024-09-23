@@ -32,7 +32,7 @@ class _SpecializationCarouselState extends State<SpecializationCarousel> {
           Padding(
             padding: const EdgeInsets.all(AppPadding.p10),
             child: Text(
-              StringManager.sectionsText,
+              StringManager.texts["sectionsText"]![StringManager.local],
               style: StyleManager.h3_Bold(),
             ),
           ),

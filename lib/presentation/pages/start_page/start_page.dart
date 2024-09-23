@@ -5,6 +5,8 @@ import 'package:medical_test/app/config/color_manager.dart';
 import 'package:medical_test/app/config/values_manager.dart';
 
 import 'package:medical_test/presentation/pages/home_page/home_page.dart';
+import 'package:medical_test/presentation/pages/signup_page/signup_page.dart';
+import 'package:medical_test/presentation/pages/signup_page/signup_page_logic/signup_binding.dart';
 
 class StartScreen extends StatefulWidget {
   const StartScreen({super.key});
@@ -19,7 +21,7 @@ class _StartScreenState extends State<StartScreen> {
     // TODO: implement initState
     super.initState();
     Future.delayed(const Duration(seconds: 3), () {
-      Get.off(() => const HomeScreen());
+      Get.off(() => const SignupPage(), binding: SignupBinding());
     });
   }
 

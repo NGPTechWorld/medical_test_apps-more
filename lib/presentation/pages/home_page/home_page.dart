@@ -22,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
           leading: Image.asset(AssetsManager.iconeAppImage),
           backgroundColor: ColorManager.whiteColor,
           title: Text(
-            StringManager.titleApp,
+            StringManager.texts["titleApp"]![0],
             style: StyleManager.h2_Bold(color: ColorManager.secoundDarkColor),
           ),
         ),

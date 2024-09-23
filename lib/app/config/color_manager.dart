@@ -20,4 +20,5 @@ class ColorManager {
   static const Color greenColor = Color(0xff2b8a41);
   static const Color redColor = Color(0xff2b8a41);
   //Custom Colors
+  static const Color backgroundSign = Color(0xff295F98);
 }

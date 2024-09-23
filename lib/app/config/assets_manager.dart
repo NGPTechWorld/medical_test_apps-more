@@ -8,6 +8,7 @@ class AssetsManager {
   static const iconeAppImage = '$imagesPath/app_icon.png';
   static const cardiologyImage = '$imagesPath/cardiology.png';
   static const orthopedicsImage = '$imagesPath/orthopedics.png';
+  static const backgroundSignUImage = '$imagesPath/backgroundSignUp.jpg';
 
   /// Icons
   /// Fonst
