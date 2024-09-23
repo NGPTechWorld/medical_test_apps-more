@@ -22,6 +22,7 @@ class DioConsumer extends ApiServices {
           options: Options(headers: headers));
       return res.data;
     } on DioException catch (e) {
+      print("=================error=======");
       handleDioException(e);
     }
   }

@@ -99,6 +99,9 @@ handleDioException(DioException e) {
 
           throw BadResponseException(
               ErrorModel(status: 504, errorMessage: e.response!.data));
+
+        default:
+          throw UnknownException(ErrorModel.fromJson(e.response!.data));
       }
 
     case DioExceptionType.cancel:

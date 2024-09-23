@@ -39,7 +39,7 @@ class InputSignUpPage extends GetView<SignupController> {
         ),
         TextFieldCustom(
           title: StringManager.texts["numberPhone"]![StringManager.local],
-          controller: controller.emailController,
+          controller: controller.numberPhoneController,
         ),
         TextFieldCustom(
           title: StringManager.texts["password"]![StringManager.local],
@@ -97,7 +97,9 @@ class ButtonSignUpPage extends GetView<SignupController> {
                 )
               : BottouCustom(
                   text: StringManager.texts["signup"]![StringManager.local],
-                  function: () {},
+                  function: () {
+                    controller.signUpWith();
+                  },
                   background: ColorManager.firstColor,
                 ),
         ),

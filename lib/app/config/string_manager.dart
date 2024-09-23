@@ -17,4 +17,5 @@ class StringManager {
     "patient": ["مريض", "Patient"],
     "nurse": ["ممرض", "Nurse"],
   };
+  static const nointernet = "No Internet!";
 }
