@@ -9,9 +9,14 @@ class TextFieldCustom extends StatelessWidget {
   final String title;
   final TextEditingController controller;
   final bool isValid = true;
-  final bool isNumberPhone, isPassword, isVisable;
-
+  final bool isNumberPhone, isPassword, obscureText, readOnly;
+  final TextStyle? style;
+  final TextInputType keyboardType;
+  final AutovalidateMode? autoValidateMode;
+  final Color fillColor;
+  final String? Function(String?)? validator;
   final void Function()? onClick;
+  final Widget? prefixIcon;
   const TextFieldCustom({
     super.key,
     required this.title,
@@ -19,7 +24,14 @@ class TextFieldCustom extends StatelessWidget {
     this.isNumberPhone = false,
     this.isPassword = false,
     this.onClick,
-    this.isVisable = false,
+    this.obscureText = false,
+    this.readOnly = false,
+    this.validator,
+    this.autoValidateMode = AutovalidateMode.disabled,
+    this.prefixIcon,
+    this.keyboardType = TextInputType.text,
+    this.style,
+    this.fillColor = ColorManager.primary1Color,
   });
 
   @override
@@ -33,24 +45,20 @@ class TextFieldCustom extends StatelessWidget {
             padding: const EdgeInsets.only(
                 top: AppPadding.p8, bottom: AppPadding.p16),
             child: TextFormField(
-              style: StyleManager.h4_Regular(),
+              readOnly: readOnly,
+              style: style ?? StyleManager.h4_Regular(),
               controller: controller,
-              keyboardType: isNumberPhone
-                  ? TextInputType.phone
-                  : isPassword
-                      ? TextInputType.visiblePassword
-                      : TextInputType.name,
-              obscureText: isVisable,
+              keyboardType: keyboardType,
+              obscureText: obscureText,
+              validator: validator,
+              autovalidateMode: autoValidateMode,
               decoration: InputDecoration(
-                // prefixIcon: Padding(
-                //   padding: const EdgeInsets.all(8.0),
-                //   child: SvgPicture.asset(
-                //     'asset/mail_icon.svg',
-                //     height: 24.0,
-                //     width: 24.0,
-                //   ),
-                // ),
-
+                errorStyle:
+                    StyleManager.body02_Medium(color: ColorManager.redColor),
+                filled: true,
+                fillColor: fillColor,
+                contentPadding: const EdgeInsets.all(AppPadding.p16),
+                prefixIcon: prefixIcon,
                 suffixIcon: isPassword
                     ? IconButton(
                         onPressed: onClick,
@@ -65,17 +73,13 @@ class TextFieldCustom extends StatelessWidget {
                 labelStyle:
                     StyleManager.h4_Regular(color: ColorManager.primary5Color),
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.0),
+                  borderRadius: BorderRadius.circular(AppSize.s10),
                   borderSide: const BorderSide(),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.0),
+                  borderRadius: BorderRadius.circular(AppSize.s10),
                   borderSide: const BorderSide(color: ColorManager.firstColor),
                 ),
-                filled: true,
-                fillColor: ColorManager.primary1Color,
-                errorText: isValid ? null : 'Please enter a valid email',
-                contentPadding: const EdgeInsets.all(16.0),
               ),
             ),
           )

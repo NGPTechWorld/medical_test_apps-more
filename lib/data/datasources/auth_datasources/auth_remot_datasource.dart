@@ -9,16 +9,18 @@ class AuthRemoteDataSource {
 
   AuthRemoteDataSource({required this.api});
 
-  Future<SignUpEntity> register(SignUpParams params) async {
-    final response =
-        await api.post("http://192.168.137.35:8000/api/register", data: {
-      ApiKey.name: params.name,
-      ApiKey.phoneNumber: params.numberPhone,
-      ApiKey.password: params.password,
-      ApiKey.passwordConfirmation: params.passwordConfirmation,
-      ApiKey.type: params.type,
-    });
-    jsonEncode(response);
-    return SignUpEntity.fromJson(response);
-  }
+  register(SignUpParams params) {}
+
+  // Future<SignUpEntity> register(SignUpParams params) async {
+  //   final response =
+  //       await api.post("http://192.168.137.35:8000/api/register", data: {
+  //     ApiKey.name: params.name,
+  //     ApiKey.phoneNumber: params.numberPhone,
+  //     ApiKey.password: params.password,
+  //     ApiKey.passwordConfirmation: params.passwordConfirmation,
+  //     ApiKey.type: params.type,
+  //   });
+  //   jsonEncode(response);
+  //   return SignUpEntity.fromJson(response);
+  // }
 }

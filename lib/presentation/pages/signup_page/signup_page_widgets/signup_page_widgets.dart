@@ -31,38 +31,68 @@ class InputSignUpPage extends GetView<SignupController> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        TextFieldCustom(
-          title: StringManager.texts["name"]![StringManager.local],
-          controller: controller.nameController,
-        ),
-        TextFieldCustom(
-          title: StringManager.texts["numberPhone"]![StringManager.local],
-          controller: controller.numberPhoneController,
-          isNumberPhone: true,
-        ),
-        TextFieldCustom(
-          title: StringManager.texts["password"]![StringManager.local],
-          controller: controller.passwordController,
-          isPassword: true,
-          isVisable: controller.isVisablePass.value,
-          onClick: () {
-            controller.isVisablePass.value = !controller.isVisablePass.value;
-          },
-        ),
-        TextFieldCustom(
-          title: StringManager.texts["confirmPassword"]![StringManager.local],
-          controller: controller.confirmPasswordController,
-          isPassword: true,
-          isVisable: controller.isVisablePassConf.value,
-          onClick: () {
-            print("HHHHH " + controller.isVisablePassConf.value.toString());
-            controller.isVisablePassConf.value =
-                !controller.isVisablePassConf.value;
-          },
-        ),
-      ],
+    return Form(
+      key: controller.formKey,
+      child: Column(
+        children: [
+          Obx(
+            () => TextFieldCustom(
+              title: StringManager.texts["name"]![StringManager.local],
+              controller: controller.nameController,
+              autoValidateMode: controller.submittedOnce.value
+                  ? AutovalidateMode.always
+                  : AutovalidateMode.disabled,
+              validator: (value) {
+                return controller.vaildatorName();
+              },
+            ),
+          ),
+          Obx(
+            () => TextFieldCustom(
+              title: StringManager.texts["numberPhone"]![StringManager.local],
+              controller: controller.numberPhoneController,
+              isNumberPhone: true,
+              autoValidateMode: controller.submittedOnce.value
+                  ? AutovalidateMode.always
+                  : AutovalidateMode.disabled,
+              validator: (value) {
+                return controller.vaildatorNumberPhone();
+              },
+            ),
+          ),
+          Obx(
+            () => TextFieldCustom(
+              title: StringManager.texts["password"]![StringManager.local],
+              controller: controller.passwordController,
+              isPassword: true,
+              obscureText: controller.isVisablePass.value,
+              onClick: () {
+                controller.isVisablePass.value =
+                    !controller.isVisablePass.value;
+              },
+              autoValidateMode: controller.submittedOnce.value
+                  ? AutovalidateMode.always
+                  : AutovalidateMode.disabled,
+              validator: (value) {
+                return controller.validatorPassword();
+              },
+            ),
+          ),
+          Obx(
+            () => TextFieldCustom(
+              title:
+                  StringManager.texts["confirmPassword"]![StringManager.local],
+              controller: controller.confirmPasswordController,
+              isPassword: true,
+              obscureText: controller.isVisablePassConf.value,
+              onClick: () {
+                controller.isVisablePassConf.value =
+                    !controller.isVisablePassConf.value;
+              },
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -112,7 +142,7 @@ class ButtonSignUpPage extends GetView<SignupController> {
                   text: StringManager.texts["signup"]![StringManager.local],
                   function: () {
                     // controller.signUpWith();
-                    Get.off(() => HomeScreen());
+                    if (controller.formKey.currentState!.validate()) {}
                   },
                   background: ColorManager.firstColor,
                 ),

@@ -18,7 +18,7 @@ class ColorManager {
   static const Color transparentColor = Colors.transparent;
   //Action Colors
   static const Color greenColor = Color(0xff2b8a41);
-  static const Color redColor = Color(0xff2b8a41);
+  static const Color redColor = Color.fromARGB(255, 184, 30, 30);
   //Custom Colors
   static const Color backgroundSign = Color(0xff295F98);
 }
