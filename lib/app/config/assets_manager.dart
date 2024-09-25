@@ -1,6 +1,6 @@
 class AssetsManager {
   ///Paths
-  static const lottiePath = 'assets/lottie';
+  static const svgPath = 'assets/svgs';
   static const imagesPath = 'assets/images';
   static const fontsPath = 'assets/fonts';
 
@@ -11,6 +11,8 @@ class AssetsManager {
   static const backgroundSignUImage = '$imagesPath/backgroundSignUp.jpg';
 
   /// Icons
-  /// Fonst
+  /// SVG
+  static const eyeSvg = '$svgPath/eye.svg';
+
   /// Lottie
 }

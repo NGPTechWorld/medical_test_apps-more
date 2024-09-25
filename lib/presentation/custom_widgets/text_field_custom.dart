@@ -1,7 +1,6 @@
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:medical_test/app/config/assets_manager.dart';
 import 'package:medical_test/app/config/color_manager.dart';
-import 'package:medical_test/app/config/string_manager.dart';
 import 'package:medical_test/app/config/style_manager.dart';
 import 'package:medical_test/app/config/values_manager.dart';
 import 'package:flutter/material.dart';
@@ -10,12 +9,18 @@ class TextFieldCustom extends StatelessWidget {
   final String title;
   final TextEditingController controller;
   final bool isValid = true;
-  final bool isNumberPhone;
-  const TextFieldCustom(
-      {super.key,
-      required this.title,
-      required this.controller,
-      this.isNumberPhone = false});
+  final bool isNumberPhone, isPassword, isVisable;
+
+  final void Function()? onClick;
+  const TextFieldCustom({
+    super.key,
+    required this.title,
+    required this.controller,
+    this.isNumberPhone = false,
+    this.isPassword = false,
+    this.onClick,
+    this.isVisable = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -30,8 +35,12 @@ class TextFieldCustom extends StatelessWidget {
             child: TextFormField(
               style: StyleManager.h4_Regular(),
               controller: controller,
-              keyboardType:
-                  isNumberPhone ? TextInputType.phone : TextInputType.name,
+              keyboardType: isNumberPhone
+                  ? TextInputType.phone
+                  : isPassword
+                      ? TextInputType.visiblePassword
+                      : TextInputType.name,
+              obscureText: isVisable,
               decoration: InputDecoration(
                 // prefixIcon: Padding(
                 //   padding: const EdgeInsets.all(8.0),
@@ -41,6 +50,17 @@ class TextFieldCustom extends StatelessWidget {
                 //     width: 24.0,
                 //   ),
                 // ),
+
+                suffixIcon: isPassword
+                    ? IconButton(
+                        onPressed: onClick,
+                        icon: SvgPicture.asset(
+                          AssetsManager.eyeSvg,
+                          height: 20,
+                          width: 20,
+                        ),
+                      )
+                    : null,
                 labelText: title,
                 labelStyle:
                     StyleManager.h4_Regular(color: ColorManager.primary5Color),

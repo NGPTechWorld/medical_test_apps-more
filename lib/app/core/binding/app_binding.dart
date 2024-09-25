@@ -7,7 +7,7 @@ import '/app/services/local_storage/cache_services.dart';
 class AppBinding implements Bindings {
   @override
   void dependencies() {
-    Get.put(CacheServices());
+    Get.put(CacheServices()).init();
     Get.lazyPut(() => DioConsumer(dio: Dio()));
     Get.put(NetworkInfoImpl());
     //repos

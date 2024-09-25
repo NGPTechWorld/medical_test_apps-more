@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:medical_test/app/services/local_storage/cache_services.dart';
 import '/app/app.dart';

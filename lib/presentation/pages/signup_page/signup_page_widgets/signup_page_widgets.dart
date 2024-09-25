@@ -1,4 +1,3 @@
-import 'package:medical_test/app/config/assets_manager.dart';
 import 'package:medical_test/app/config/color_manager.dart';
 import 'package:medical_test/app/config/string_manager.dart';
 import 'package:medical_test/app/config/style_manager.dart';
@@ -7,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:medical_test/presentation/custom_widgets/bottun_custom.dart';
 import 'package:medical_test/presentation/custom_widgets/text_field_custom.dart';
+import 'package:medical_test/presentation/pages/home_page/home_page.dart';
 import 'package:medical_test/presentation/pages/signup_page/signup_page_logic/signup_controller.dart';
 
 class TitleSignUpPage extends StatelessWidget {
@@ -40,14 +40,27 @@ class InputSignUpPage extends GetView<SignupController> {
         TextFieldCustom(
           title: StringManager.texts["numberPhone"]![StringManager.local],
           controller: controller.numberPhoneController,
+          isNumberPhone: true,
         ),
         TextFieldCustom(
           title: StringManager.texts["password"]![StringManager.local],
           controller: controller.passwordController,
+          isPassword: true,
+          isVisable: controller.isVisablePass.value,
+          onClick: () {
+            controller.isVisablePass.value = !controller.isVisablePass.value;
+          },
         ),
         TextFieldCustom(
           title: StringManager.texts["confirmPassword"]![StringManager.local],
           controller: controller.confirmPasswordController,
+          isPassword: true,
+          isVisable: controller.isVisablePassConf.value,
+          onClick: () {
+            print("HHHHH " + controller.isVisablePassConf.value.toString());
+            controller.isVisablePassConf.value =
+                !controller.isVisablePassConf.value;
+          },
         ),
       ],
     );
@@ -98,7 +111,8 @@ class ButtonSignUpPage extends GetView<SignupController> {
               : BottouCustom(
                   text: StringManager.texts["signup"]![StringManager.local],
                   function: () {
-                    controller.signUpWith();
+                    // controller.signUpWith();
+                    Get.off(() => HomeScreen());
                   },
                   background: ColorManager.firstColor,
                 ),

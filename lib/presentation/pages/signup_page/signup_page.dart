@@ -1,3 +1,4 @@
+import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:medical_test/app/config/assets_manager.dart';
 import 'package:medical_test/app/config/color_manager.dart';
 import 'package:medical_test/app/config/string_manager.dart';
@@ -6,9 +7,10 @@ import 'package:medical_test/app/config/values_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:medical_test/presentation/custom_widgets/app_icon_wigdet.dart';
 import 'package:medical_test/presentation/custom_widgets/my_clipper.dart';
+import 'package:medical_test/presentation/pages/signup_page/signup_page_logic/signup_controller.dart';
 import 'package:medical_test/presentation/pages/signup_page/signup_page_widgets/signup_page_widgets.dart';
 
-class SignupPage extends StatelessWidget {
+class SignupPage extends GetView<SignupController> {
   const SignupPage({super.key});
 
   @override
