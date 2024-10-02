@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart' as dio;
 import 'package:flutter/material.dart';
@@ -7,7 +6,6 @@ import 'package:medical_test/app/config/string_manager.dart';
 import 'package:medical_test/app/core/errors/error_handler.dart';
 import 'package:medical_test/app/core/errors/expentions.dart';
 import 'package:medical_test/app/services/api/api_response_model.dart';
-import 'package:medical_test/app/services/api/api_services.dart';
 import 'package:medical_test/app/services/api/dio_consumer.dart';
 import 'package:medical_test/app/services/api/end_points.dart';
 import 'package:medical_test/app/services/connection/network_info.dart';

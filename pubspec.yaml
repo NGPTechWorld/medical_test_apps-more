@@ -29,10 +29,13 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   carousel_slider: ^5.0.0
+  change_app_package_name: ^1.4.0
   cupertino_icons: ^1.0.6
   dartz: ^0.10.1
   data_connection_checker_tv: ^0.3.5-nullsafety
   dio: ^5.7.0
+  firebase_core: ^3.5.0
+  firebase_messaging: ^15.1.2
   flutter:
     sdk: flutter
   flutter_svg: ^2.0.10+1

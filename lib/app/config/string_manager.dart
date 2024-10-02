@@ -1,32 +1,20 @@
 class StringManager {
   static int local = 0;
-  static Map<String, List<String>> texts = {
-    //Home
-    "titleApp": ["المركز الطبي", "T"],
-    "sectionsText": ["الأقسام الطبية", "Sections"],
-    "topDocktorText": ["أفضل الأطباء", "Top Doctors"],
-    //Sign Up
-    "signup": ["حساب جديد", "Sign Up"],
-    "alreadyHaveAccount": ["لدي حساب في المركز", "Already have account"],
-    "name": ["الاسم", "Name"],
-    "numberPhone": ["رقم الموبايل", "Number Phone"],
-    "password": ["كلمة المرور", "Password"],
-    "confirmPassword": ["تأكيد كلمة المرور", "Password Confirm"],
-    "typeAccount": ["نوع الحساب", "Type Account"],
-    "login": ["تسجيل الدخول", "Login"],
-    "patient": ["مريض", "Patient"],
-    "nurse": ["ممرض", "Nurse"],
-    "ERROR_isEmpty": ["هذا الحقل فارغ", "This field is empty"],
-    "ERROR_NumberPhone": ["رقم الهاتف غير صحيح", "The phone number is invalid"],
-    "ERROR_PasswordMin": [
-      "يجب ان تكون أكثر من 6 خانات",
-      "At least 6 characters"
-    ],
-    "ERROR_PasswordPatern": [
-      "يجب ان تحوي أحرف كبيرة وصغيرة وأرقام",
-      "At least one number and special character"
-    ],
-  };
+  static const String titleApp = "titleApp";
+  static const String sectionsText = "sectionsText";
+  static const String topDocktorText = "topDocktorText";
+  // Sign Up
+  static const String signup = "signup";
+  static const String alreadyHaveAccount = "alreadyHaveAccount";
+  static const String name = "name";
+  static const String numberPhone = "numberPhone";
+  static const String password = "password";
+  static const String confirmPassword = "confirmPassword";
+  static const String typeAccount = "typeAccount";
+  static const String login = "login";
+  static const String patient = "patient";
+  static const String nurse = "nurse";
+  static const String dontHaveAccount = "dontHaveAccount";
   // error handler
   static const String strBadRequestError = "BadRequest Error";
   static const String strNoContent = "No Content";
@@ -44,4 +32,8 @@ class StringManager {
       "No Connection, please check your internet connection and try again";
   static const nointernet = "No Internet!";
   static const String success = "success";
+  static const String errorisEmpty = "ERROR_isEmpty";
+  static const String errorPasswordIsMin = "ERROR_PasswordMin";
+  static const String errorPasswordIsPatern = "ERROR_PasswordPatern";
+  static const String errorPhonenumberIsPaten = "ERROR_NumberPhone";
 }

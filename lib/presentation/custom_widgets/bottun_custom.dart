@@ -1,4 +1,3 @@
-import 'package:medical_test/app/config/assets_manager.dart';
 import 'package:medical_test/app/config/color_manager.dart';
 import 'package:medical_test/app/config/style_manager.dart';
 import 'package:medical_test/app/config/values_manager.dart';
@@ -16,8 +15,8 @@ class BottouCustom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialButton(
-        onPressed: () => function(),
+    return InkWell(
+        onTap: () => function(),
         child: Container(
           height: AppSizeScreen.screenHeight * 0.07,
           width: AppSizeScreen.screenWidth / 2,

@@ -10,7 +10,7 @@ class AppBinding implements Bindings {
   void dependencies() {
     Get.put(CacheServicesSharedPreferences()).init();
     Get.put(CacheServiceGetStorage());
-    Get.lazyPut(() => DioConsumer());
+    Get.put(() => DioConsumer(), permanent: true);
     Get.put(NetworkInfoImpl());
     //repos
     //  lazyPut TempRepositoryImpl

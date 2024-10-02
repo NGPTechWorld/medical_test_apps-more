@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "667088675795",
+    "project_id": "notee-f7e62",
+    "storage_bucket": "notee-f7e62.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:667088675795:android:b8909556bd1776e1d78526",
+        "android_client_info": {
+          "package_name": "com.AppsAndMore.Training"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDE9PCGkbRM5cICVnnSRpyc4zaN7wh6hW0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

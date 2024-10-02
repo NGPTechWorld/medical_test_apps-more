@@ -1,4 +1,3 @@
-import 'package:get/get.dart';
 import 'package:medical_test/app/services/local_storage/cache_services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

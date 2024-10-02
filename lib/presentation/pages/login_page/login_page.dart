@@ -4,11 +4,11 @@ import 'package:medical_test/app/config/color_manager.dart';
 import 'package:medical_test/app/config/values_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:medical_test/presentation/custom_widgets/image_clippath.dart';
+import 'package:medical_test/presentation/pages/login_page/login_page_widgets/login_page_widgets.dart';
 import 'package:medical_test/presentation/pages/signup_page/signup_page_logic/signup_controller.dart';
-import 'package:medical_test/presentation/pages/signup_page/signup_page_widgets/signup_page_widgets.dart';
 
-class SignupPage extends GetView<SignupController> {
-  const SignupPage({super.key});
+class LoginPage extends GetView<SignupController> {
+  const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,11 +25,10 @@ class SignupPage extends GetView<SignupController> {
                 child: const Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    TitleSignUpPage(),
-                    InputSignUpPage(),
-                    ChooseType(),
-                    AlreadyHaveAccontSignUp(),
-                    ButtonSignUpPage(),
+                    TitleLoginPage(),
+                    InputLoginPage(),
+                    DontHaveAccontSignUp(),
+                    ButtonLoginPage(),
                   ],
                 ),
               ),

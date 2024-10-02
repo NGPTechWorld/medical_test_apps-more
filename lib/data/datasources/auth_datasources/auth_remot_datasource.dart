@@ -1,8 +1,5 @@
 import 'package:medical_test/app/core/params/params.dart';
 import 'package:medical_test/app/services/api/api_services.dart';
-import 'package:medical_test/app/services/api/end_points.dart';
-import 'package:medical_test/domain/entities/sign_up.dart';
-import 'dart:convert';
 
 class AuthRemoteDataSource {
   final ApiServices api;

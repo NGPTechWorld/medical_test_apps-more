@@ -1,12 +1,14 @@
 import 'package:medical_test/app/config/color_manager.dart';
 import 'package:medical_test/app/config/string_manager.dart';
 import 'package:medical_test/app/config/style_manager.dart';
+import 'package:medical_test/app/config/validator_manager.dart';
 import 'package:medical_test/app/config/values_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:medical_test/presentation/custom_widgets/bottun_custom.dart';
 import 'package:medical_test/presentation/custom_widgets/text_field_custom.dart';
-import 'package:medical_test/presentation/pages/home_page/home_page.dart';
+import 'package:medical_test/presentation/pages/login_page/login_page.dart';
+import 'package:medical_test/presentation/pages/login_page/login_page_logic/login_binding.dart';
 import 'package:medical_test/presentation/pages/signup_page/signup_page_logic/signup_controller.dart';
 
 class TitleSignUpPage extends StatelessWidget {
@@ -18,7 +20,7 @@ class TitleSignUpPage extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: AppPadding.p8),
         child: Text(
-          StringManager.texts["signup"]![StringManager.local],
+          StringManager.signup.tr,
           style: StyleManager.h1_Bold(color: ColorManager.firstDarkColor),
         ),
       ),
@@ -37,32 +39,36 @@ class InputSignUpPage extends GetView<SignupController> {
         children: [
           Obx(
             () => TextFieldCustom(
-              title: StringManager.texts["name"]![StringManager.local],
+              title: StringManager.name.tr,
               controller: controller.nameController,
               autoValidateMode: controller.submittedOnce.value
                   ? AutovalidateMode.always
                   : AutovalidateMode.disabled,
               validator: (value) {
-                return controller.vaildatorName();
+                return ValidatorManager.vaildatorName(
+                    controller.nameController.text, controller.errorName);
               },
             ),
           ),
           Obx(
             () => TextFieldCustom(
-              title: StringManager.texts["numberPhone"]![StringManager.local],
+              title: StringManager.numberPhone.tr,
               controller: controller.numberPhoneController,
               isNumberPhone: true,
               autoValidateMode: controller.submittedOnce.value
                   ? AutovalidateMode.always
                   : AutovalidateMode.disabled,
               validator: (value) {
-                return controller.vaildatorNumberPhone();
+                return ValidatorManager.vaildatorNumberPhone(
+                    controller.numberPhoneController.text,
+                    controller.errorPhonenumber,
+                    controller.avoidNumberPhone);
               },
             ),
           ),
           Obx(
             () => TextFieldCustom(
-              title: StringManager.texts["password"]![StringManager.local],
+              title: StringManager.password.tr,
               controller: controller.passwordController,
               isPassword: true,
               obscureText: controller.isVisablePass.value,
@@ -74,14 +80,16 @@ class InputSignUpPage extends GetView<SignupController> {
                   ? AutovalidateMode.always
                   : AutovalidateMode.disabled,
               validator: (value) {
-                return controller.validatorPassword();
+                return ValidatorManager.validatorPassword(
+                    controller.passwordController.text,
+                    controller.errorPassword,
+                    controller.avoidPassword);
               },
             ),
           ),
           Obx(
             () => TextFieldCustom(
-              title:
-                  StringManager.texts["confirmPassword"]![StringManager.local],
+              title: StringManager.confirmPassword.tr,
               controller: controller.confirmPasswordController,
               isPassword: true,
               obscureText: controller.isVisablePassConf.value,
@@ -107,16 +115,19 @@ class AlreadyHaveAccontSignUp extends StatelessWidget {
       child: Row(
         children: [
           Text(
-            StringManager.texts["alreadyHaveAccount"]![StringManager.local],
+            StringManager.alreadyHaveAccount.tr,
             style:
                 StyleManager.body01_Medium(color: ColorManager.primary6Color),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: AppPadding.p10),
-            child: Text(
-              StringManager.texts["login"]![StringManager.local],
-              style:
-                  StyleManager.body01_Semibold(color: ColorManager.firstColor),
+            child: InkWell(
+              onTap: () => Get.off(const LoginPage(), binding: LoginBinding()),
+              child: Text(
+                StringManager.login.tr,
+                style: StyleManager.body01_Semibold(
+                    color: ColorManager.firstColor),
+              ),
             ),
           ),
         ],
@@ -139,7 +150,7 @@ class ButtonSignUpPage extends GetView<SignupController> {
                   color: ColorManager.firstDarkColor,
                 )
               : BottouCustom(
-                  text: StringManager.texts["signup"]![StringManager.local],
+                  text: StringManager.signup.tr,
                   function: () {
                     // controller.signUpWith();
                     if (controller.formKey.currentState!.validate()) {}
@@ -165,7 +176,7 @@ class ChooseType extends GetView<SignupController> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: AppPadding.p16),
               child: Text(
-                StringManager.texts["typeAccount"]![StringManager.local],
+                StringManager.typeAccount.tr,
                 style: StyleManager.h3_Bold(color: ColorManager.firstDarkColor),
               ),
             ),
@@ -174,7 +185,7 @@ class ChooseType extends GetView<SignupController> {
                 Expanded(
                   child: ListTile(
                     title: Text(
-                      StringManager.texts["patient"]![StringManager.local],
+                      StringManager.patient.tr,
                       style: StyleManager.body01_Medium(
                           color: ColorManager.primary7Color),
                     ),
@@ -192,7 +203,7 @@ class ChooseType extends GetView<SignupController> {
                 Expanded(
                   child: ListTile(
                     title: Text(
-                      StringManager.texts["nurse"]![StringManager.local],
+                      StringManager.nurse.tr,
                       style: StyleManager.body01_Medium(
                           color: ColorManager.primary7Color),
                     ),

@@ -7,6 +7,7 @@ import 'package:medical_test/app/config/style_manager.dart';
 import 'package:medical_test/app/config/values_manager.dart';
 import 'package:medical_test/data/enums/medical_pecialization_enume.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:get/get.dart';
 
 class SpecializationCarousel2 extends StatefulWidget {
   const SpecializationCarousel2({super.key});
@@ -31,7 +32,7 @@ class _SpecializationCarousel2State extends State<SpecializationCarousel2> {
         Padding(
           padding: const EdgeInsets.all(AppPadding.p10),
           child: Text(
-            StringManager.texts["sectionsText"]![StringManager.local],
+            StringManager.sectionsText.tr,
             style: StyleManager.h3_Bold(),
           ),
         ),

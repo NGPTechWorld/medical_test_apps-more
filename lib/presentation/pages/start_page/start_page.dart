@@ -3,8 +3,6 @@ import 'package:get/get.dart';
 import 'package:medical_test/app/config/assets_manager.dart';
 import 'package:medical_test/app/config/color_manager.dart';
 import 'package:medical_test/app/config/values_manager.dart';
-
-import 'package:medical_test/presentation/pages/home_page/home_page.dart';
 import 'package:medical_test/presentation/pages/signup_page/signup_page.dart';
 import 'package:medical_test/presentation/pages/signup_page/signup_page_logic/signup_binding.dart';
 
@@ -28,6 +26,7 @@ class _StartScreenState extends State<StartScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorManager.primary1Color,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
